@@ -63,6 +63,30 @@ airdrop --help
 - macOS (macOS 10.15 or later)
 - Apple AirDrop enabled
 
+## Gatekeeper / Security Notice
+
+If you get a security error when running airdrop after installation, you need to bypass Gatekeeper:
+
+### Option 1: Remove quarantine attribute (recommended)
+
+```bash
+xattr -cr $(which airdrop)
+```
+
+### Option 2: Allow in System Settings
+
+1. Go to **System Settings → Privacy & Security**
+2. Scroll down to **Security**
+3. Click **Allow anyway** next to the blocked airdrop
+
+### Option 3: Sign the binary yourself (for developers)
+
+```bash
+codesign --force --deep -s - ./airdrop
+```
+
+---
+
 ## Development
 
 ### Build from source
