@@ -13,7 +13,16 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    strategy:
+      matrix:
+        include:
+          - runner: macos-14
+            arch: arm64
+            binary: airdrop_arm64
+          - runner: macos-13
+            arch: amd64
+            binary: airdrop_x86_64
+    runs-on: ${{ matrix.runner }}
 
     steps:
       - name: Checkout code
@@ -26,20 +35,43 @@ jobs:
         with:
           go-version: "1.22"
 
-      - name: Build arm64 binary
+      - name: Build binary
         run: |
           make clean
-          make all ARCH=arm64
-          mv airdrop airdrop_arm64
+          make all ARCH=${{ matrix.arch }}
+          mv airdrop ${{ matrix.binary }}
 
-      - name: Build x86_64 binary
-        run: |
-          make clean
-          make all ARCH=x86_64
-          mv airdrop airdrop_x86_64
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.binary }}
+          path: ${{ matrix.binary }}
+
+  create-universal:
+    needs: build
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name || github.event.inputs.tag || 'main' }}
+
+      - name: Download arm64 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: airdrop_arm64
+          path: .
+
+      - name: Download x86_64 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: airdrop_x86_64
+          path: .
 
       - name: Create universal binary
         run: |
+          chmod +x airdrop_arm64 airdrop_x86_64
           lipo -create -output airdrop airdrop_arm64 airdrop_x86_64
           rm -f airdrop_arm64 airdrop_x86_64
 
@@ -51,10 +83,12 @@ jobs:
         run: |
           SHA256=$(shasum -a 256 airdrop_darwin_universal.tar.gz | cut -d " " -f 1)
           echo "sha256=$SHA256" >> $GITHUB_OUTPUT
+          echo "$SHA256"
 
       - name: Update Homebrew formula
+        if: github.event_name != 'workflow_dispatch'
         run: |
-          VERSION="${{ github.event.inputs.tag || github.ref_name }}"
+          VERSION="${{ github.ref_name }}"
           VERSION_STRIPPED=${VERSION#v}
 
           git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/xvoland/homebrew-tap.git
@@ -72,11 +106,11 @@ jobs:
       - name: Install GitHub CLI
         run: brew install gh
 
-      - name: Create GitHub Release and Upload Assets
+      - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
-          TAG=${{ github.event.inputs.tag || github.ref_name }}
+          TAG=${{ github.ref_name }}
 
           gh release create "$TAG" ./airdrop ./airdrop_darwin_universal.tar.gz \
             --title "Release $TAG" \
