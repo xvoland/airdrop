@@ -18,6 +18,7 @@ import (
 	"runtime"
 	"strings"
 	"syscall"
+	"time"
 	"unsafe"
 )
 
@@ -76,7 +77,8 @@ func main() {
 		yellow := "\033[33m"
 		bold := "\033[1m"
 
-		fmt.Fprintf(os.Stderr, "%s\n\n", colorize("Copyright © 2025, Vitalii Tereshchuk | All rights reserved | https://dotoca.net/airdrop", cyan))
+		year := time.Now().Year()
+		fmt.Fprintf(os.Stderr, "%s\n\n", colorize(fmt.Sprintf("Copyright © %d, Vitalii Tereshchuk | All rights reserved | https://dotoca.net/airdrop", year), cyan))
 		fmt.Fprintf(os.Stderr, "%s%s%s\n\n", bold, colorize("CLI Utility for Apple AirDrop — version "+version, yellow), "\033[0m")
 		fmt.Fprintf(os.Stderr, "%s\n", colorize("Usage:", bold))
 		fmt.Fprintf(os.Stderr, "  %s file1 file2 ...\n", os.Args[0])
