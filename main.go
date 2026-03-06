@@ -24,7 +24,7 @@ import (
 var (
 	verbose     bool
 	showVersion bool
-	version     = "0.3.3"
+	version     = "0.3.5"
 )
 
 var tempFiles []string
