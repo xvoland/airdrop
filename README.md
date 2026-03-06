@@ -1,3 +1,6 @@
+<p align="right"><img align="center" src="https://raw.githubusercontent.com/xvoland/xvoland/main/images/qr_airdrop.jpg" alt="DOTOCA Ltd." height="50" width="50" /></a>
+</p>
+
 # CLI airdrop 📤
 
 CLI utility for Apple AirDrop — send files via AirDrop directly from the terminal.
