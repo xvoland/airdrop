@@ -160,11 +160,41 @@ make all ARCH=x86_64
 
 MIT License — see [LICENSE](LICENSE)
 
-## Author 👤
+## Donation
 
-**Vitalii Tereshchuk**  
+<p>I’ll keep improving the app no matter what because I love seeing people use it to reach their goals. But if you’d like to support my work, even a $1 donation makes a big difference—it helps cover hosting costs and the time I put into coding. Every little bit helps, and I’d truly appreciate it.</p>
+<p>If you enjoy the my work, consider donating today. Thank you so much! 🙌</p>
+
+<p align="center">
+  <a href="https://paypal.me/xvoland" target="blank"><img align="center" src="https://raw.githubusercontent.com/xvoland/xvoland/main/images/paypal.png" alt="PayPal" width="250" /></a>
+</p>
+
+### Crypto
+
+**BTC (ERC20):** 0x17496b75d241d377334717f8cbc16cc1a5b80396<br />
+**USDT (TRC20):** TAAsGXjNoQRJ7ewxSBL2W3DUCoG7h8LCT6
+
+
+## HOME 👤
+
 🌐 https://dotoca.net/airdrop  
-📧 xvoland@gmail.com
+
+## Other
+### ☎️  Connect with me:
+
+<p align="left">
+  <a href="https://youtube.com/xvoland" target="blank"><img align="center" src="https://raw.githubusercontent.com/xvoland/xvoland/main/images/youtube.svg" alt="Youtube channel" height="30" width="40" /></a>
+  <a href="https://instagram.com/xvoland" target="blank"><img align="center" src="https://raw.githubusercontent.com/xvoland/xvoland/main/images/instagram.svg" alt="xVoLAnD" height="30" width="40" /></a>
+  <a href="https://www.linkedin.com/in/vitalij-terescsuk-02b4689/" target="blank"><img align="center" src="https://raw.githubusercontent.com/xvoland/xvoland/main/images/linked-in-alt.svg" alt="xVoLAnD" height="30" width="40" /></a>
+  <a href="https://dotoca.net" target="blank"><img align="center" src="https://raw.githubusercontent.com/xvoland/xvoland/main/images/logo-dotoca.svg" alt="DOTOCA Ltd." height="50" width="80" /></a>
+</p>
+
+<br />
+<br />
+
+📺 Latest YouTube Videos
+<!-- YOUTUBE:START -->
+<!-- YOUTUBE:END -->
 
 ---
 
