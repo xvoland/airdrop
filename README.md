@@ -1,12 +1,17 @@
-# airdrop 📤
+# CLI airdrop 📤
 
 CLI utility for Apple AirDrop — send files via AirDrop directly from the terminal.
 
 ## What is this? 🤔
 
-**airdrop** is a command-line tool that lets you send files to nearby Apple devices (iPhone, iPad, Mac) using Apple's AirDrop feature — but directly from the terminal!
+**airdrop** is a command-line tool that lets you send files to nearby Apple devices (iPhone, iPad, Mac) using Apple's AirDrop feature — but ***directly from the terminal!***
 
 Instead of dragging files to the AirDrop icon, you can just type:
+
+```bash
+airdrop image.jpg
+```
+
 ```bash
 airdrop myfile.pdf
 ```
@@ -17,7 +22,7 @@ airdrop myfile.pdf
 - Support for multiple files at once
 - Pipe support — send files via stdin
 - Automatic file type detection
-- Works on Apple Silicon (M1/M2/M3) and Intel Macs
+- Works on Apple Silicon and Intel Macs
 
 ## Installation 📥
 
