@@ -1,3 +1,7 @@
+/*
+Copyright © 2026, Vitalii Tereshchuk | DOTOCA.NET All rights reserved.
+Homepage: https://dotoca.net/airdrop
+*/
 package main
 
 /*
