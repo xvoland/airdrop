@@ -11,6 +11,6 @@ class Airdrop < Formula
   end
 
   test do
-    system "#{bin}/airdrop", "--version"
+    system bin/"airdrop", "--version"
   end
 end
