@@ -202,7 +202,7 @@ MIT License — see [LICENSE](LICENSE)
 
 📺 Latest YouTube Videos
 <!-- BLOG-POST-LIST:START -->
-- [🔥 Cozy Fireplace Crackling 24/7 | ❄️ Snowy Cabin Views | Winter Ambience &lpar;No Music&rpar;](https://www.youtube.com/watch?v=BTAg2EoyciE)
+- [🔥 Artemis II Live Mission Map &lpar;Orion&rpar;](https://www.youtube.com/watch?v=BTAg2EoyciE)
 - [OptiGrid – Optical Illusion Pattern Generator](https://www.youtube.com/shorts/uJ_X90zbwUQ)
 - [Gemini 3.1 Nano Banana 2 - AI Photoshop Plugin jsxNanaBananaPro v0.6.4](https://www.youtube.com/watch?v=GtspFSN7VlI)
 - [How To Change The Thumbnail for Shorts using the YouTube app for iOS #youtube #techtips #tutorial](https://www.youtube.com/shorts/_1UBbKtWUT4)
