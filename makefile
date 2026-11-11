@@ -21,7 +21,9 @@ $(OBJ): $(SWIFT_SRC)
 	# swiftc -c -import-objc-header $(HEADER) $(SWIFT_SRC) -o $(OBJ)
 	# swiftc -emit-library -o $(DYLIB) -import-objc-header $(HEADER) $(SWIFT_SRC) -framework Cocoa -framework Foundation
 	swiftc -c -import-objc-header $(HEADER) -parse-as-library $(SWIFT_SRC) -o $(OBJ)
+	strip -x $(OBJ)
 	# Compile Swift source into an object file without main symbol to avoid duplicate symbols
+	# Strip local/LTO sections (e.g. __swift_modhash) so the Go linker accepts the object
 
 $(STATIC_LIB): $(OBJ)
 	ar rcs $(STATIC_LIB) $(OBJ)
@@ -37,7 +39,7 @@ clean:
 	rm -f $(OBJ) $(STATIC_LIB) $(BIN)
 
 sign:
-	codesign --force --sign - $(STATIC_LIB)
-	codesign --force --sign - $(BIN)
+	codesign --force --timestamp=none --sign - $(STATIC_LIB)
+	codesign --force --timestamp=none --sign - $(BIN)
 
 .PHONY: all clean sign

@@ -31,6 +31,16 @@ jobs:
           make clean
           make all
 
+      # Ad-hoc signing ("-" identity, no Apple cert): keeps the Mach-O valid
+      # for Homebrew installs (brew does not quarantine formula binaries the
+      # way browsers do, so an ad-hoc signature is enough — no Developer ID
+      # needed) and avoids "damaged binary" / Gatekeeper prompts on Apple
+      # Silicon, so users no longer need `xattr -dr com.apple.quarantine`.
+      - name: Ad-hoc sign binary
+        run: |
+          codesign --force --timestamp=none --sign - ./airdrop
+          codesign --verify --verbose=1 ./airdrop
+
       - name: Package for Homebrew
         run: tar -czf airdrop_darwin_arm64.tar.gz airdrop
 
