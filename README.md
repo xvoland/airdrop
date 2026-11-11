@@ -38,6 +38,9 @@ brew tap xvoland/tap
 brew install airdrop
 ```
 
+> Starting with `v0.3.7` the binary is ad-hoc signed in CI, so Homebrew installs
+> run without Gatekeeper prompts and without `xattr -dr com.apple.quarantine`.
+
 ### Method 2: Manual Download
 
 1. Go to [GitHub Releases](https://github.com/xvoland/airdrop/releases)
@@ -112,6 +115,10 @@ airdrop -v file.pdf
 ### "Permission denied" or "Blocked by macOS"
 
 macOS has a security feature called Gatekeeper that blocks apps from unknown developers. If this happens:
+
+> Since `v0.3.7` the binary shipped in releases (and via Homebrew) is ad-hoc
+> signed, so this is usually not required. The steps below are only needed for
+> older versions or files downloaded manually through a browser.
 
 **Solution 1: Run this command in terminal**
 ```bash
